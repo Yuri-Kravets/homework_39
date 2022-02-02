@@ -33,11 +33,15 @@ user['a'] = "value3";
                     getObjData(o[prop])
                 } else {
                     console.log('object value:', o[prop]);
-                    writable:false;
-                    configurable:false;
+                    Object.defineProperties(user,'key', {
+                        writable:false,
+                        configurable:false,
+                        enumerable:false
+
+                    });
                 }
             }
         }
     }
-console.log(Object.entries(user));
+console.log(Object.values(user));
 })();
